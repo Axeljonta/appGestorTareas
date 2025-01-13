@@ -71,14 +71,14 @@ function agregarTarea(nombreTarea, fechaLimiteRecibida = null){
 
 // funcion para eliminar una tarea 
 function eliminarTarea(indice){
-    (indice >= 0 && indice > tareas.length)?
+    (indice >= 0 && indice < tareas.length)?
     (tareas.splice(indice,1), console.log('Tarea eliminada')):
     console.log('Indice invalido');
 }
 
 // Funcion para marcar tarea como completada 
 function completarTarea(indice){
-    (indice >= 0 && indice > tareas.length)?
+    (indice >= 0 && indice < tareas.length)?
     (tareas[indice].completada = true, console.log('Tarea completada')):
     console.log('Indice invalido');
 }
@@ -150,7 +150,7 @@ function ordenarTareasPorNombre(){
 }
 
 //funcion ordenar tareas por la propiedad  fecha utilizando BubbleSort
-function ordenarTareasPorFeacha(){
+function ordenarTareasPorFecha(){
 
     for (let j = 0; j < tareas.length; j++) {
         for (let i = 0; i < tareas.length; i++) {
@@ -171,7 +171,7 @@ function bucarPorNombre(nombreTarea) {
 
     while(inicio <= fin){
 
-        let elementoMedio = Math.round((inicio-fin)/2);
+        let elementoMedio = Math.floor((inicio-fin)/2);
 
         if(tareas[elementoMedio].nombre === nombreTarea){
             return elementoMedio
@@ -311,7 +311,7 @@ function interactuarUsuario(){
                 break
 
             case 12: 
-                ordenarTareasPorFeacha;
+                ordenarTareasPorFecha();
                 break
 
             case 13:
